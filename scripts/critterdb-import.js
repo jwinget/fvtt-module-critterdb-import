@@ -15,6 +15,20 @@ Hooks.on("renderSidebarTab", async (app, html) => {
 
 class CritterDBImporter extends Application
 {
+  static get defaultOptions()
+  {
+      const options = super.defaultOptions;
+      options.id = "critterdb-importer";
+      options.template = "modules/critterdb-import/templates/critterdb_import_ui.html"
+      options.classes.push("critterdb-importer");
+      options.resizable = false;
+      options.height = "auto";
+      options.width = 400;
+      options.minimizable = true;
+      options.title = "CritterDB Importer"
+      return options;
+}
+
   async parseCritter() {
     // Set up a default bestiary for single-mob imports
 let bestiary = "MyCritters";
