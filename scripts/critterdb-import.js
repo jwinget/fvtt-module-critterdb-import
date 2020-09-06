@@ -1,3 +1,22 @@
+// Need to link this all to a UI interface
+// Like a button alongside "Create Compendium"
+// Check how DungeonDraft importer does it
+Hooks.on("renderSidebarTab", async (app, html) => {
+    if (app.options.id == "compendia") { // I'm not sure if "compendia" is the right tab ID
+      let button = $("<button class='import-dd'><i class='fas fa-file-import'></i> CritterDB Import</button>")
+   
+      button.click(function () {
+        new CritterDBImporter().render(true);
+      });
+      
+      html.find(".directory-footer").append(button);
+    }
+  })
+
+class CritterDBImporter extends Application
+{
+// Set up a default bestiary for single-mob imports
+let bestiary = "MyCritters"
 // Parse CritterDB JSON data
 
 // Determine if this is a single monster or a bestiary
@@ -12,8 +31,8 @@ if (pack == null) {
     // Create a new compendium
     await Compendium.create({
         name: `critterdb-${bestiary}`,
-        label: `CritterDB Imported-${bestiary}`,
-        entity: "Actor",
+        label: `CritterDB - ${bestiary}`,
+        entity: "Actor"
       });
 }
 
@@ -30,4 +49,6 @@ const actors = Actor.createMany(content, {temporary: true});
 for ( let a of actors ) {
   await pack.importEntity(a);
   console.log(`Imported Actor ${a.name} into Compendium pack ${pack.collection}`);
+}
+
 }
