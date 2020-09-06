@@ -1,0 +1,860 @@
+{
+    "_id": "VnK2ZXbrgxdxe3A9",
+    "name": "Gibbering Mouther",
+    "type": "npc",
+    "data": {
+      "abilities": {
+        "str": {
+          "value": 10,
+          "proficient": 0,
+          "min": 3,
+          "mod": 0,
+          "save": 0,
+          "prof": 0,
+          "saveBonus": 0,
+          "checkBonus": 0
+        },
+        "dex": {
+          "value": 8,
+          "proficient": 0,
+          "min": 3,
+          "mod": -1,
+          "save": -1,
+          "prof": 0,
+          "saveBonus": 0,
+          "checkBonus": 0
+        },
+        "con": {
+          "value": 16,
+          "proficient": 0,
+          "min": 3,
+          "mod": 3,
+          "save": 3,
+          "prof": 0,
+          "saveBonus": 0,
+          "checkBonus": 0
+        },
+        "int": {
+          "value": 3,
+          "proficient": 0,
+          "min": 3,
+          "mod": -4,
+          "save": -4,
+          "prof": 0,
+          "saveBonus": 0,
+          "checkBonus": 0
+        },
+        "wis": {
+          "value": 10,
+          "proficient": 0,
+          "min": 3,
+          "mod": 0,
+          "save": 0,
+          "prof": 0,
+          "saveBonus": 0,
+          "checkBonus": 0
+        },
+        "cha": {
+          "value": 6,
+          "proficient": 0,
+          "min": 3,
+          "mod": -2,
+          "save": -2,
+          "prof": 0,
+          "saveBonus": 0,
+          "checkBonus": 0
+        }
+      },
+      "attributes": {
+        "ac": {
+          "value": 9,
+          "min": 9
+        },
+        "hp": {
+          "value": 67,
+          "min": 0,
+          "max": 67,
+          "temp": 0,
+          "tempmax": 0,
+          "formula": "9d8 + 27"
+        },
+        "init": {
+          "value": 0,
+          "bonus": 0,
+          "mod": -1,
+          "total": -1,
+          "prof": 0
+        },
+        "spellcasting": "",
+        "speed": {
+          "value": "Walk 10 ft.",
+          "special": "Swim 10 ft."
+        },
+        "prof": 2,
+        "spelldc": 10,
+        "spellLevel": 0
+      },
+      "details": {
+        "biography": {
+          "value": "",
+          "public": ""
+        },
+        "alignment": "Neutral",
+        "race": null,
+        "type": "Aberration",
+        "environment": "Underdark",
+        "cr": 2,
+        "spellLevel": 0,
+        "xp": {
+          "value": 450
+        },
+        "source": "MM pg. 157",
+        "class": {}
+      },
+      "traits": {
+        "size": "med",
+        "di": {
+          "value": [],
+          "custom": ""
+        },
+        "dr": {
+          "value": [],
+          "custom": ""
+        },
+        "dv": {
+          "value": [],
+          "custom": ""
+        },
+        "ci": {
+          "value": [
+            "prone"
+          ],
+          "custom": ""
+        },
+        "senses": "Darkvision 60 ft.",
+        "languages": {
+          "value": [],
+          "custom": ""
+        },
+        "perception": {
+          "_deprecated": true
+        }
+      },
+      "currency": {
+        "pp": 0,
+        "gp": 0,
+        "ep": 0,
+        "sp": 0,
+        "cp": 0
+      },
+      "skills": {
+        "acr": {
+          "value": 0,
+          "ability": "dex",
+          "mod": -1,
+          "bonus": 0,
+          "passive": 9,
+          "prof": 0,
+          "total": -1
+        },
+        "ani": {
+          "value": 0,
+          "ability": "wis",
+          "mod": 0,
+          "bonus": 0,
+          "passive": 10,
+          "prof": 0,
+          "total": 0
+        },
+        "arc": {
+          "value": 0,
+          "ability": "int",
+          "mod": -4,
+          "bonus": 0,
+          "passive": 6,
+          "prof": 0,
+          "total": -4
+        },
+        "ath": {
+          "value": 0,
+          "ability": "str",
+          "mod": 0,
+          "bonus": 0,
+          "passive": 10,
+          "prof": 0,
+          "total": 0
+        },
+        "dec": {
+          "value": 0,
+          "ability": "cha",
+          "mod": -2,
+          "bonus": 0,
+          "passive": 8,
+          "prof": 0,
+          "total": -2
+        },
+        "his": {
+          "value": 0,
+          "ability": "int",
+          "mod": -4,
+          "bonus": 0,
+          "passive": 6,
+          "prof": 0,
+          "total": -4
+        },
+        "ins": {
+          "value": 0,
+          "ability": "wis",
+          "mod": 0,
+          "bonus": 0,
+          "passive": 10,
+          "prof": 0,
+          "total": 0
+        },
+        "itm": {
+          "value": 0,
+          "ability": "cha",
+          "mod": -2,
+          "bonus": 0,
+          "passive": 8,
+          "prof": 0,
+          "total": -2
+        },
+        "inv": {
+          "value": 0,
+          "ability": "int",
+          "mod": -4,
+          "bonus": 0,
+          "passive": 6,
+          "prof": 0,
+          "total": -4
+        },
+        "med": {
+          "value": 0,
+          "ability": "wis",
+          "mod": 0,
+          "bonus": 0,
+          "passive": 10,
+          "prof": 0,
+          "total": 0
+        },
+        "nat": {
+          "value": 0,
+          "ability": "int",
+          "mod": -4,
+          "bonus": 0,
+          "passive": 6,
+          "prof": 0,
+          "total": -4
+        },
+        "prc": {
+          "value": 0,
+          "ability": "wis",
+          "mod": 0,
+          "bonus": 0,
+          "passive": 10,
+          "prof": 0,
+          "total": 0
+        },
+        "prf": {
+          "value": 0,
+          "ability": "cha",
+          "mod": -2,
+          "bonus": 0,
+          "passive": 8,
+          "prof": 0,
+          "total": -2
+        },
+        "per": {
+          "value": 0,
+          "ability": "cha",
+          "mod": -2,
+          "bonus": 0,
+          "passive": 8,
+          "prof": 0,
+          "total": -2
+        },
+        "rel": {
+          "value": 0,
+          "ability": "int",
+          "mod": -4,
+          "bonus": 0,
+          "passive": 6,
+          "prof": 0,
+          "total": -4
+        },
+        "slt": {
+          "value": 0,
+          "ability": "dex",
+          "mod": -1,
+          "bonus": 0,
+          "passive": 9,
+          "prof": 0,
+          "total": -1
+        },
+        "ste": {
+          "value": 0,
+          "ability": "dex",
+          "mod": -1,
+          "bonus": 0,
+          "passive": 9,
+          "prof": 0,
+          "total": -1
+        },
+        "sur": {
+          "value": 0,
+          "ability": "wis",
+          "mod": 0,
+          "bonus": 0,
+          "passive": 10,
+          "prof": 0,
+          "total": 0
+        }
+      },
+      "spells": {
+        "spell1": {
+          "value": 0,
+          "max": 0,
+          "override": null
+        },
+        "spell2": {
+          "value": 0,
+          "max": 0,
+          "override": null
+        },
+        "spell3": {
+          "value": 0,
+          "max": 0,
+          "override": null
+        },
+        "spell4": {
+          "value": 0,
+          "max": 0,
+          "override": null
+        },
+        "spell5": {
+          "value": 0,
+          "max": 0,
+          "override": null
+        },
+        "spell6": {
+          "value": 0,
+          "max": 0,
+          "override": null
+        },
+        "spell7": {
+          "value": 0,
+          "max": 0,
+          "override": null
+        },
+        "spell8": {
+          "value": 0,
+          "max": 0,
+          "override": null
+        },
+        "spell9": {
+          "value": 0,
+          "max": 0,
+          "override": null
+        },
+        "pact": {
+          "value": 0,
+          "max": 0,
+          "override": null,
+          "level": 0
+        },
+        "spell0": {
+          "value": 0,
+          "max": 0
+        }
+      },
+      "bonuses": {
+        "mwak": "",
+        "rwak": "",
+        "msak": "",
+        "rsak": "",
+        "abilities": {
+          "check": "",
+          "save": "",
+          "skill": ""
+        },
+        "spell": {
+          "dc": ""
+        },
+        "damage": "",
+        "abilityCheck": "",
+        "abilitySave": "",
+        "skillCheck": ""
+      },
+      "resources": {
+        "legact": {
+          "value": 0,
+          "max": 0
+        },
+        "legres": {
+          "value": 0,
+          "max": 0
+        },
+        "lair": {
+          "value": false,
+          "initiative": 0
+        }
+      }
+    },
+    "sort": 700000,
+    "flags": {
+      "_sheetTab-sidebar": "abilities",
+      "_sheetTab-primary": "features",
+      "dnd5e": {
+        "conditions": []
+      },
+      "exportSource": {
+        "world": "foundry-test",
+        "system": "dnd5e",
+        "coreVersion": "0.6.6",
+        "systemVersion": 0.96
+      }
+    },
+    "img": "tokens/vtta/Gibbering_Mouther.Avatar.png?1598836087221",
+    "token": {
+      "flags": {},
+      "name": "Gibbering Mouther",
+      "displayName": 20,
+      "img": "tokens/vtta/Gibbering_Mouther.Token.png?1598836087221",
+      "tint": null,
+      "width": 1,
+      "height": 1,
+      "scale": 1,
+      "lockRotation": false,
+      "rotation": 0,
+      "vision": false,
+      "dimSight": 0,
+      "brightSight": 0,
+      "dimLight": 0,
+      "brightLight": 0,
+      "sightAngle": 360,
+      "lightAngle": 360,
+      "lightAlpha": 1,
+      "actorId": "VnK2ZXbrgxdxe3A9",
+      "actorLink": false,
+      "actorData": {},
+      "disposition": -1,
+      "displayBars": 40,
+      "bar1": {
+        "attribute": "attributes.hp"
+      },
+      "bar2": {},
+      "randomImg": false
+    },
+    "items": [
+      {
+        "_id": "Ck2V1R6LY1nCoWwD",
+        "flags": {
+          "_sheetTab": "description"
+        },
+        "name": "Bite",
+        "type": "weapon",
+        "img": "systems/dnd5e/icons/skills/red_29.jpg",
+        "data": {
+          "description": {
+            "value": "<p>The mouther opens its wide mouth to bite its foe.</p>\n<section class=\"secret\">\n<p>If the target is Medium or smaller, it must succeed on a DC 10 Strength saving throw or be knocked @JournalEntry[Prone]. If the target is killed by this damage, it is absorbed into the mouther.</p>\n</section>",
+            "chat": "",
+            "unidentified": ""
+          },
+          "source": null,
+          "quantity": 1,
+          "weight": 0,
+          "price": "",
+          "attuned": false,
+          "equipped": null,
+          "rarity": "Common",
+          "identified": true,
+          "activation": {
+            "type": "action",
+            "cost": 1,
+            "condition": ""
+          },
+          "duration": {
+            "value": null,
+            "units": ""
+          },
+          "target": {
+            "value": null,
+            "units": "",
+            "type": ""
+          },
+          "range": {
+            "value": 5,
+            "long": null,
+            "units": "ft"
+          },
+          "uses": {
+            "value": 0,
+            "max": 0,
+            "per": null
+          },
+          "consume": {
+            "type": "",
+            "target": null,
+            "amount": null
+          },
+          "ability": "str",
+          "actionType": "mwak",
+          "attackBonus": 0,
+          "chatFlavor": "",
+          "critical": null,
+          "damage": {
+            "parts": [
+              [
+                "5d6 + @mod",
+                "piercing"
+              ]
+            ],
+            "versatile": ""
+          },
+          "formula": "",
+          "save": {
+            "ability": "",
+            "dc": null,
+            "scaling": "spell"
+          },
+          "armor": {
+            "value": 10
+          },
+          "hp": {
+            "value": 0,
+            "max": 0,
+            "dt": null,
+            "conditions": ""
+          },
+          "weaponType": "natural",
+          "properties": {},
+          "proficient": true,
+          "bonus": {
+            "value": 0,
+            "_deprecated": true
+          },
+          "damageType": {
+            "value": "",
+            "_deprecated": true
+          },
+          "damage2": {
+            "value": "",
+            "_deprecated": true
+          },
+          "damage2Type": {
+            "value": "",
+            "_deprecated": true
+          },
+          "attributes": {
+            "spelldc": 10
+          }
+        },
+        "sort": 100001,
+        "labels": {
+          "activation": "1 Action",
+          "target": "",
+          "range": "5 Feet",
+          "duration": "",
+          "recharge": "Recharge [undefined]",
+          "save": "",
+          "damage": "5d6 + @mod",
+          "damageTypes": "Piercing"
+        },
+        "isStack": false,
+        "hasUses": false,
+        "hasTarget": false
+      },
+      {
+        "_id": "AFP7VhnNB91KMbpD",
+        "flags": {
+          "_sheetTab": "description"
+        },
+        "name": "Aberrant Ground",
+        "type": "feat",
+        "img": "systems/dnd5e/icons/skills/emerald_03.jpg",
+        "data": {
+          "description": {
+            "value": "<p>The ground in a 10-foot radius around the mouther is doughlike difficult terrain. Each creature that starts its turn in that area must succeed on a DC 10 Strength saving throw or have its speed reduced to 0 until the start of its next turn.</p>",
+            "chat": "",
+            "unidentified": ""
+          },
+          "source": null,
+          "activation": {
+            "type": "none",
+            "cost": 0,
+            "condition": ""
+          },
+          "duration": {
+            "value": "",
+            "units": ""
+          },
+          "target": {
+            "value": "",
+            "units": "",
+            "type": ""
+          },
+          "range": {
+            "value": "",
+            "long": null,
+            "units": ""
+          },
+          "uses": {
+            "value": 0,
+            "max": 0,
+            "per": null,
+            "type": ""
+          },
+          "consume": {
+            "type": "",
+            "target": null,
+            "amount": null
+          },
+          "ability": "",
+          "actionType": null,
+          "attackBonus": 0,
+          "chatFlavor": "",
+          "critical": null,
+          "damage": {
+            "parts": [],
+            "versatile": "",
+            "value": ""
+          },
+          "formula": "",
+          "save": {
+            "ability": "",
+            "dc": null,
+            "scaling": "spell",
+            "value": ""
+          },
+          "requirements": "",
+          "recharge": {
+            "value": null,
+            "charged": false
+          },
+          "time": {
+            "value": "",
+            "_deprecated": true
+          },
+          "damageType": {
+            "value": "",
+            "_deprecated": true
+          },
+          "attributes": {
+            "spelldc": 10
+          }
+        },
+        "sort": 100001,
+        "labels": {
+          "featType": "Action",
+          "activation": "None",
+          "target": "",
+          "range": "",
+          "duration": "",
+          "recharge": "Recharge [null]",
+          "save": "",
+          "damage": "",
+          "damageTypes": ""
+        },
+        "isStack": false,
+        "hasUses": false,
+        "isOnCooldown": false,
+        "isDepleted": false,
+        "hasTarget": false
+      },
+      {
+        "_id": "UV3Wwc48isKubvIo",
+        "flags": {
+          "_sheetTab": "description"
+        },
+        "name": "Gibbering",
+        "type": "feat",
+        "img": "systems/dnd5e/icons/skills/affliction_24.jpg",
+        "data": {
+          "description": {
+            "value": "<p>The mouther babbles incoherently while it can see any creature and isn't @JournalEntry[Incapacitated]. Each creature that starts its turn within 20 feet of the mouther and can hear the gibbering must succeed on a DC 10 Wisdom saving throw. On a failure, the creature can't take reactions until the start of its next turn and rolls a d8 to determine what it does during its turn.</p>\n<p>On a 1 to 4, the creature does nothing.</p>\n<p>On a 5 or 6, the creature takes no action or bonus action and uses all its movement to move in a randomly determined direction.</p>\n<p>On a 7 or 8, the creature makes a melee attack against a randomly determined creature within its reach or does nothing if it can't make such an attack.</p>",
+            "chat": "",
+            "unidentified": ""
+          },
+          "source": null,
+          "activation": {
+            "type": "none",
+            "cost": 0,
+            "condition": ""
+          },
+          "duration": {
+            "value": "",
+            "units": ""
+          },
+          "target": {
+            "value": "",
+            "units": "",
+            "type": ""
+          },
+          "range": {
+            "value": "",
+            "long": null,
+            "units": ""
+          },
+          "uses": {
+            "value": 0,
+            "max": 0,
+            "per": null,
+            "type": ""
+          },
+          "consume": {
+            "type": "",
+            "target": null,
+            "amount": null
+          },
+          "ability": "",
+          "actionType": null,
+          "attackBonus": 0,
+          "chatFlavor": "",
+          "critical": null,
+          "damage": {
+            "parts": [],
+            "versatile": "",
+            "value": ""
+          },
+          "formula": "",
+          "save": {
+            "ability": "",
+            "dc": null,
+            "scaling": "spell",
+            "value": ""
+          },
+          "requirements": "",
+          "recharge": {
+            "value": null,
+            "charged": false
+          },
+          "time": {
+            "value": "",
+            "_deprecated": true
+          },
+          "damageType": {
+            "value": "",
+            "_deprecated": true
+          },
+          "attributes": {
+            "spelldc": 10
+          }
+        },
+        "sort": 200001,
+        "labels": {
+          "featType": "Action",
+          "activation": "None",
+          "target": "",
+          "range": "",
+          "duration": "",
+          "recharge": "Recharge [null]",
+          "save": "",
+          "damage": "",
+          "damageTypes": ""
+        },
+        "isStack": false,
+        "hasUses": false,
+        "isOnCooldown": false,
+        "isDepleted": false,
+        "hasTarget": false
+      },
+      {
+        "_id": "p5nC6ftxXe4RCwX8",
+        "flags": {
+          "_sheetTab": "description"
+        },
+        "name": "Blinding Spittle (Recharge 5-6)",
+        "type": "feat",
+        "img": "systems/dnd5e/icons/skills/affliction_22.jpg",
+        "data": {
+          "description": {
+            "value": "<p>The mouther spits a chemical glob at a point it can see within 15 feet of it. The glob explodes in a blinding flash of light on impact. Each creature within 5 feet of the flash must succeed on a DC 13 Dexterity saving throw or be @JournalEntry[Blinded] until the end of the mouther's next turn.</p>",
+            "chat": "",
+            "unidentified": ""
+          },
+          "source": null,
+          "activation": {
+            "type": "action",
+            "cost": 1,
+            "condition": ""
+          },
+          "duration": {
+            "value": "",
+            "units": ""
+          },
+          "target": {
+            "value": "",
+            "units": "",
+            "type": ""
+          },
+          "range": {
+            "value": "",
+            "long": null,
+            "units": ""
+          },
+          "uses": {
+            "value": 1,
+            "max": 1,
+            "per": null,
+            "type": "sr"
+          },
+          "consume": {
+            "type": "",
+            "target": null,
+            "amount": null
+          },
+          "ability": "con",
+          "actionType": null,
+          "attackBonus": 0,
+          "chatFlavor": "",
+          "critical": null,
+          "damage": {
+            "parts": [],
+            "versatile": "",
+            "value": ""
+          },
+          "formula": "",
+          "save": {
+            "ability": "",
+            "dc": null,
+            "scaling": "spell",
+            "value": "dex"
+          },
+          "requirements": "",
+          "recharge": {
+            "value": null,
+            "charged": false
+          },
+          "time": {
+            "value": "",
+            "_deprecated": true
+          },
+          "damageType": {
+            "value": "",
+            "_deprecated": true
+          },
+          "attributes": {
+            "spelldc": 10
+          }
+        },
+        "sort": 300001,
+        "labels": {
+          "featType": "Action",
+          "activation": "1 Action",
+          "target": "",
+          "range": "",
+          "duration": "",
+          "recharge": "Recharge [null]",
+          "save": "",
+          "damage": "",
+          "damageTypes": ""
+        },
+        "isStack": false,
+        "hasUses": true,
+        "isOnCooldown": false,
+        "isDepleted": false,
+        "hasTarget": false
+      }
+    ]
+  }

@@ -1,8 +1,15 @@
+// Parse CritterDB JSON data
+
+// Generate Foundry-formatted JSON
+
+// Check to see if compendium exists already, create if it doesn't
+
 // Below is boilerplate from Foundry Docs on importing actor data
 // Reference a Compendium pack by it's callection ID
 const pack = game.packs.find(p => p.collection === `${moduleName}.${packName}`);
 
 // Load an external JSON data file which contains data for import
+// Need to change this to instead use the translated JSON
 const response = await fetch("worlds/myworld/data/import.json");
 const content = await response.json();
 
