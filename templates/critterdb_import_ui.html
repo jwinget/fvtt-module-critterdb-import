@@ -1,21 +1,26 @@
 <div>
     <div class = "form-group-import">
-        To get your critter or bestiary from CritterDB:
+        <h2>To get your critter or bestiary from CritterDB:</h2>
+        <h3>For a single creature:</h3>
         <ul>
-            <li>
-                For a single creature click on the down arrow in the upper right to expand, then select "Export", "Export to JSON", "CritterDB JSON", and copy to clipboard
-            </li>
-            <li>
-                For an entire bestiary, open it and click the three-dots menu in the upper right, then select "Export", "CritterDB JSON", and copy to clipboard 
-            </li>
+            <li>Click on the down arrow in the upper right of the stat block</li>
+            <li>Select "Export"</li>
+            <li>Select "Export to JSON"</li>
+            <li>Select "CritterDB JSON"</li>
+            <li>Click "Copy to Clipboard"</li>
         </ul>
+        <h3>For an entire bestiary:</h3>
+        <ul>
+            <li>Open the bestiary</li>
+            <li>Click the three-dots menu in the upper right</li>
+            <li>Select "Export"</li>
+            <li>Select "CritterDB JSON"</li>
+            <li>Click "Copy to Clipboard"</li>
+        </ul>
+        <br />
 
-        Paste the JSON into the box below, select whether you want to overwrite any existing compendia, and click "Import".
-        
-        <div class="import-options">CritterDB JSON</div>
-        <textarea id="critterdb-json" name="critterdb-json" rows="4" cols="50"></textarea>
-        <input type="checkbox" id="overwrite" name="overwrite">
-        <label for="overwrite">Overwrite existing monsters in compendium</label>
+        <h2>Paste the JSON into the box below and click "Import".</h2>
+        <textarea id="critterdb-json" name="critterdb-json" rows="10" cols="50"></textarea>
         <input type="submit" class="import-critter" value="Import">
     </div>
 </div>

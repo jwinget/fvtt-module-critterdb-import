@@ -101,13 +101,33 @@ activateListeners(html) {
               value: c.stats.armorClass
             },
             hp: {
-              value: c.stats.hitPoints
+              value: c.stats.hitPoints,
+              max: c.stats.hitPoints,
               formula: c.stats.hitPointsStr.match(/\(([^)]+)\)/)[1]
             }
           },
           details: {
             alignment: c.stats.alignment,
-            race: c.stats.race
+            type: c.stats.race,
+            cr: c.stats.challengeRating,
+            xp: {
+              value: c.stats.experiencePoints
+            }
+          },
+          traits: {
+            di: {
+              value: c.stats.damageImmunities
+            },
+            dr: {
+              value: c.stats.damageResistances
+            },
+            dv: {
+              value: c.stats.damageVulnerabilities
+            },
+            ci: {
+              value: c.stats.conditionImmunities
+            },
+            senses: c.stats.senses.join()
           }
         }
       };
@@ -115,6 +135,7 @@ activateListeners(html) {
       let thisActor = await Actor.create(tempActor,{'temporary':false, 'displaySheet': false})
       await pack.importEntity(thisActor);
       console.log(`Done importing ${c.name} into ${pack.collection}`);
+      ui.notifications.info(`Done importing ${c.name} into ${pack.collection}`);
     }
   }
 }
