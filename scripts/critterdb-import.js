@@ -39,49 +39,66 @@ activateListeners(html) {
 
   static async parseCritter(critterJSON) {
     // Parse CritterDB JSON data pasted in UI
-    // Set up a default bestiary for single-mob imports
-    let bestiary = "MyCritters";
-
     // Determine if this is a single monster or a bestiary by checking for creatures array
     let parsedCritters = JSON.parse(critterJSON);
     let creatureArray = parsedCritters.creatures;
 
     if (creatureArray == null){ // One monster, load to catch-all compendium
-      let bestiary = "MyCritters"
+      var bestiary = "MyCritters"
       // Create a length 1 array so we can use same iteration as for bestiary
       creatureArray = [parsedCritters]
     } else { // This is a bestiary, make a matching compendium
-      let bestiary = parsedCritters.name.replace(/[ ,.]/g, "");
+      var bestiary = parsedCritters.name.replace(/[ ,.]/g, "");
     }
 
-    // Create compendium
-    let pack = game.packs.find(p => p.collection === `critterdb-${bestiary}`);
+    // Look for compendium
+    let pack = game.packs.find(p => p.collection === `world.critterdb-${bestiary}`);
 
     if (pack == null) {
         // Create a new compendium
         await Compendium.create({
             name: `critterdb-${bestiary}`,
             label: `CritterDB - ${bestiary}`,
+            collection: `critterdb-${bestiary}`,
             entity: "Actor"
           });
     }
+    // Update pack object
+    pack = game.packs.find(p => p.collection === `world.critterdb-${bestiary}`);
 
-    // Generate Foundry-formatted JSON data
+    // Generate Foundry Actor data structure
     for (let c of creatureArray) {
-      console.log(c.name)
+      console.log(`Importing" ${c.name} into ${pack.collection}`);
+      let tempActor = {
+        name: c.name,
+        type: "npc",
+        data: {
+          abilities: {
+            str: {
+              value: c.stats.abilityScores.strength
+            },
+            dex: {
+              value: c.stats.abilityScores.dexterity
+            },
+            con: {
+              value: c.stats.abilityScores.constitution
+            },
+            int: {
+              value: c.stats.abilityScores.intelligence
+            },
+            wis: {
+              value: c.stats.abilityScores.wisdom
+            },
+            cha: {
+              value: c.stats.abilityScores.charisma
+            }
+          }
+        }
+      };
+
+      let thisActor = await Actor.create(tempActor,{'temporary':false, 'displaySheet': false})
+      await pack.importEntity(thisActor);
+      console.log(`Done importing ${c.name} into ${pack.collection}`);
     }
-    // This should be assigned to const content
-
-    // I think the below should work once the JSON payload is correctly formatted
-    // Create temporary Actor entities which impose structure on the imported data
-    // Looks like you have to call individually Actor.create() now. createMany() doesn't work anymore
-    // may also be able to use Actor.importFromJSON() 
-    // const actors = Actor.createMany(content, {temporary: true});
-
-    // Save each temporary Actor into the Compendium pack
-    //for ( let a of actors ) {
-    //  await pack.importEntity(a);
-    //  console.log(`Imported Actor ${a.name} into Compendium pack ${pack.collection}`);
-    //}
   }
 }
