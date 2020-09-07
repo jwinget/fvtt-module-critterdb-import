@@ -188,7 +188,18 @@ activateListeners(html) {
             thisItem.data.actionType = "rwak";
           }
           // This only handles attacks with one damage component. Need to again collect all parts from a.description :(
-          thisItem.data.damage.parts.push([a.description.match(/\(([^)]+)\)/)[1], a.description.match(/\w+(?=\s+damage)/)[0].toLowerCase()]);
+            let formula_regexp = /\(([^)]+)\)/g;
+            let matches = [...a.description.matchAll(formula_regexp)];
+            let dtype_regexp = /\w+(?=\s+damage)/g;
+            let dtypes = [...a.description.matchAll(dtype_regexp)];
+
+            matches.forEach((formula, index) => {
+              thisItem.data.damage.parts.push([formula[1], dtypes[index][0].toLowerCase()]);
+            });
+            
+            //a.description.match(/\(([^)]+)\)/).forEach(function (value, i) {
+            //  thisItem.data.damage.parts.push([value, a.description.match(/\w+(?=\s+damage)/)[i].toLowerCase()]);
+            //});
         } else {
           thisItem.data.description.value = `<p>${a.description}</p>`;
           thisItem.type = "feat";
