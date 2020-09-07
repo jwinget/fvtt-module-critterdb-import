@@ -85,6 +85,7 @@ activateListeners(html) {
       // to generate Foundry "items" for attacks/spells/etc
       // Need some logic to determine what is a "feat" or "weapon" type in Foundry. Maybe look for "Hit:" 
       
+      // Create the temporary actor data structure
       let tempActor = {
         name: c.name,
         type: "npc",
@@ -144,11 +145,10 @@ activateListeners(html) {
             },
             senses: c.stats.senses.join()
           },
-          }
         }
       };
 
-      // NOT WORKING: check if this actor already exists and handle update/replacement
+      // Check if this actor already exists and handle update/replacement
       let existingActor = game.packs.find(p => p.collection === `world.critterdb-${bestiary}`).index.find(n => n.name === c.name);
       console.log(existingActor);
 
@@ -162,8 +162,9 @@ activateListeners(html) {
       console.log(`Done importing ${c.name} into ${pack.collection}`);
       ui.notifications.info(`Done importing ${c.name} into ${pack.collection}`);
       } else if (updateBool == true) {
-        console.log("Update box checked");
-        let thisActor = await existingActor.update(tempActor.data);
+        // Need to pass _id to updateEntity
+        tempActor._id = existingActor._id;
+        await pack.updateEntity(tempActor);
         console.log(`Updated ${c.name} in ${pack.collection}`);
         ui.notifications.info(`Updated data for ${c.name} in ${pack.collection}`);
       } else {
