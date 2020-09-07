@@ -66,7 +66,10 @@ activateListeners(html) {
     // Update pack object
     pack = game.packs.find(p => p.collection === `world.critterdb-${bestiary}`);
 
-    // Generate Foundry Actor data structure
+    // Probably need to loop over the critterDB stats.additionalAbilities
+    // to generate Foundry "items" for attacks/spells/etc
+
+    // Generate Foundry Actor data structure and load
     for (let c of creatureArray) {
       console.log(`Importing" ${c.name} into ${pack.collection}`);
       let tempActor = {
@@ -92,6 +95,19 @@ activateListeners(html) {
             cha: {
               value: c.stats.abilityScores.charisma
             }
+          },
+          attributes: {
+            ac: {
+              value: c.stats.armorClass
+            },
+            hp: {
+              value: c.stats.hitPoints
+              formula: c.stats.hitPointsStr.match(/\(([^)]+)\)/)[1]
+            }
+          },
+          details: {
+            alignment: c.stats.alignment,
+            race: c.stats.race
           }
         }
       };
