@@ -171,7 +171,10 @@ activateListeners(html) {
           name: a.name,
           data: {
             description: {
-              }
+              },
+            damage: {
+              parts: []
+            }
             }
           };
         
@@ -179,6 +182,13 @@ activateListeners(html) {
         if (atype) {
           thisItem.data.description.value = `<section class=\"secret\"><p>${a.description}</p>`;
           thisItem.type = "weapon";
+          if (a.description.includes("Melee")) {
+            thisItem.data.actionType = "mwak";
+          } else if (a.description.includes("Ranged")) {
+            thisItem.data.actionType = "rwak";
+          }
+          // This only handles attacks with one damage component. Need to again collect all parts from a.description :(
+          thisItem.data.damage.parts.push([a.description.match(/\(([^)]+)\)/)[1], a.description.match(/\w+(?=\s+damage)/)[0].toLowerCase()]);
         } else {
           thisItem.data.description.value = `<p>${a.description}</p>`;
           thisItem.type = "feat";
