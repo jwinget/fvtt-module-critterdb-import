@@ -89,6 +89,11 @@ activateListeners(html) {
       let tempActor = {
         name: c.name,
         type: "npc",
+        img: c.flavor.imageUrl,
+        token: {
+          name: c.name,
+          img: c.flavor.imageUrl
+        },
         data: {
           abilities: {
             str: {
@@ -150,7 +155,6 @@ activateListeners(html) {
 
       // Check if this actor already exists and handle update/replacement
       let existingActor = game.packs.find(p => p.collection === `world.critterdb-${bestiary}`).index.find(n => n.name === c.name);
-      console.log(existingActor);
 
       if (existingActor == null) {
       // Create the actor and import it to the pack
@@ -164,10 +168,17 @@ activateListeners(html) {
       } else if (updateBool == true) {
         // Need to pass _id to updateEntity
         tempActor._id = existingActor._id;
+        
+        // Don't update image or token in case these have been modified in Foundry
+        // Could make this a check box later?
+        delete tempActor.img;
+        delete tempActor.token;
+
         await pack.updateEntity(tempActor);
         console.log(`Updated ${c.name} in ${pack.collection}`);
         ui.notifications.info(`Updated data for ${c.name} in ${pack.collection}`);
       } else {
+        console.log(`${c.name} already exists. Skipping`);
         ui.notifications.error(`${c.name} already exists. Skipping`);
       }
     }
