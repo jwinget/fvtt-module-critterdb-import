@@ -32,16 +32,18 @@ activateListeners(html) {
   super.activateListeners(html)
   html.find(".import-critter").click(async ev => {
     let critterJSON = html.find('[name=critterdb-json]').val();
-    CritterDBImporter.parseCritter(critterJSON)
+    let updateBool = html.find('[name=updateButton]').is(':checked');
+    CritterDBImporter.parseCritter(critterJSON, updateBool)
   });
   this.close();
 }
 
-  static async parseCritter(critterJSON) {
+  static async parseCritter(critterJSON, updateBool) {
     // Parse CritterDB JSON data pasted in UI
     // Determine if this is a single monster or a bestiary by checking for creatures array
     let parsedCritters = JSON.parse(critterJSON);
     let creatureArray = parsedCritters.creatures;
+    console.log(updateBool)
 
     if (creatureArray == null){ // One monster, load to catch-all compendium
       var bestiary = "MyCritters"
@@ -66,12 +68,23 @@ activateListeners(html) {
     // Update pack object
     pack = game.packs.find(p => p.collection === `world.critterdb-${bestiary}`);
 
-    // Probably need to loop over the critterDB stats.additionalAbilities
-    // to generate Foundry "items" for attacks/spells/etc
+    // Dictionary to map monster size strings
+    var size_dict = {
+      "Tiny":"tiny",
+      "Small":"sm",
+      "Medium":"med",
+      "Large":"lrg",
+      "Huge":"huge",
+      "Gargantuan":"grg"
+    };
 
     // Generate Foundry Actor data structure and load
     for (let c of creatureArray) {
       console.log(`Importing" ${c.name} into ${pack.collection}`);
+      // TODO: loop over the critterDB stats.additionalAbilities, actions, reactions, and legendaryActions
+      // to generate Foundry "items" for attacks/spells/etc
+      // Need some logic to determine what is a "feat" or "weapon" type in Foundry. Maybe look for "Hit:" 
+      
       let tempActor = {
         name: c.name,
         type: "npc",
@@ -112,9 +125,11 @@ activateListeners(html) {
             cr: c.stats.challengeRating,
             xp: {
               value: c.stats.experiencePoints
-            }
+            },
+            source: `CritterDB - ${bestiary}`
           },
           traits: {
+            size: size_dict[c.stats.size],
             di: {
               value: c.stats.damageImmunities
             },
@@ -128,14 +143,32 @@ activateListeners(html) {
               value: c.stats.conditionImmunities
             },
             senses: c.stats.senses.join()
+          },
           }
         }
       };
 
-      let thisActor = await Actor.create(tempActor,{'temporary':false, 'displaySheet': false})
+      // NOT WORKING: check if this actor already exists and handle update/replacement
+      let existingActor = game.packs.find(p => p.collection === `world.critterdb-${bestiary}`).index.find(n => n.name === c.name);
+      console.log(existingActor);
+
+      if (existingActor == null) {
+      // Create the actor and import it to the pack
+      let thisActor = await Actor.create(tempActor,{'temporary':true, 'displaySheet': false})
       await pack.importEntity(thisActor);
+      await pack.getIndex(); // Need to refresh the index to update it
+
+      // Wrap up
       console.log(`Done importing ${c.name} into ${pack.collection}`);
       ui.notifications.info(`Done importing ${c.name} into ${pack.collection}`);
+      } else if (updateBool == true) {
+        console.log("Update box checked");
+        let thisActor = await existingActor.update(tempActor.data);
+        console.log(`Updated ${c.name} in ${pack.collection}`);
+        ui.notifications.info(`Updated data for ${c.name} in ${pack.collection}`);
+      } else {
+        ui.notifications.error(`${c.name} already exists. Skipping`);
+      }
     }
   }
 }
