@@ -80,10 +80,7 @@ activateListeners(html) {
 
     // Generate Foundry Actor data structure and load
     for (let c of creatureArray) {
-      console.log(`Importing" ${c.name} into ${pack.collection}`);
-      // TODO: loop over the critterDB stats.additionalAbilities, actions, reactions, and legendaryActions
-      // to generate Foundry "items" for attacks/spells/etc
-      // Need some logic to determine what is a "feat" or "weapon" type in Foundry. Maybe look for "Hit:" 
+      console.log(`Importing ${c.name} into ${pack.collection}`);
       
       // Create the temporary actor data structure
       let tempActor = {
@@ -153,12 +150,51 @@ activateListeners(html) {
         }
       };
 
+      // Create the actor
+      let thisActor = await Actor.create(tempActor,{'temporary':true, 'displaySheet': false});
+
+      // Create owned "Items" for spells, actions, and abilities
+      // WIP: Loop over the critterDB stats.additionalAbilities, actions, reactions, and legendaryActions
+      // to generate Foundry "items" for attacks/spells/etc
+
+      // Concatenate all of the arrays from CritterDB
+      let action_array = c.stats.additionalAbilities.concat(c.stats.actions, c.stats.reactions, c.stats.legendaryActions);
+      
+      for (let a of action_array) {
+        // Detect type of action where "Attack:" indicates a "weapon", otherwise a "feat"
+        var atype = a.description.includes("Attack:");
+        console.log(a.name);
+        console.log(atype);
+
+        // Set up the Item data
+        let thisItem = {
+          name: a.name,
+          data: {
+            description: {
+              }
+            }
+          };
+        
+        // Update properties that are different between weapons and feats
+        if (atype) {
+          thisItem.data.description.value = `<section class=\"secret\"><p>${a.description}</p>`;
+          thisItem.type = "weapon";
+        } else {
+          thisItem.data.description.value = `<p>${a.description}</p>`;
+          thisItem.type = "feat";
+        }
+
+        // Create the item and add it to the actor
+        let tempItem = await Item.create(thisItem, {'temporary': true, 'displaySheet': false});
+        console.log(tempItem);
+        thisActor.data.items.push(tempItem);
+      };
+
       // Check if this actor already exists and handle update/replacement
       let existingActor = game.packs.find(p => p.collection === `world.critterdb-${bestiary}`).index.find(n => n.name === c.name);
 
       if (existingActor == null) {
-      // Create the actor and import it to the pack
-      let thisActor = await Actor.create(tempActor,{'temporary':true, 'displaySheet': false})
+      // Import the actor into the pack
       await pack.importEntity(thisActor);
       await pack.getIndex(); // Need to refresh the index to update it
 
