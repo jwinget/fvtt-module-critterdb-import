@@ -203,7 +203,11 @@ activateListeners(html) {
             let dtypes = [...a.description.matchAll(dtype_regexp)];
 
             matches.forEach((formula, index) => {
-              thisItem.data.damage.parts.push([formula[1], dtypes[index][0].toLowerCase()]);
+              try {
+                thisItem.data.damage.parts.push([formula[1], dtypes[index][0].toLowerCase()]);
+              } catch (e) {
+                console.log(e);
+              }
             });
             
         } else {
