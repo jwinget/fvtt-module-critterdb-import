@@ -14,11 +14,16 @@
         "url": "https://github.com/seriallos"
       }
     ],
-    "version": "0.0.1",
+    "version": "0.1.0",
     "minimumCoreVersion": "0.6.6",
     "compatibleCoreVersion": "0.6.6",
     "system": "dnd5e",
+    "styles": [
+      "styles/style.css"
+    ],
     "scripts": [
         "scripts/critterdb-import.js"
-      ]
+      ],
+    "manifest": "https://raw.githubusercontent.com/jwinget/fvtt-module-critterdb-import/master/module.json",
+    "download": "https://github.com/jwinget/fvtt-module-critterdb-import/archive/master.zip"
 }

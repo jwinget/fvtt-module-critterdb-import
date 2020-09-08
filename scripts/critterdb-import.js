@@ -1,7 +1,7 @@
 // Set up the user interface
 Hooks.on("renderSidebarTab", async (app, html) => {
     if (app.options.id == "compendium") {
-      let button = $("<button class='import-dd'><i class='fas fa-file-import'></i> CritterDB Import</button>")
+      let button = $("<button class='import-cd'><i class='fas fa-file-import'></i> CritterDB Import</button>")
    
       button.click(function () {
         new CritterDBImporter().render(true);
@@ -174,7 +174,12 @@ activateListeners(html) {
               },
             damage: {
               parts: []
-            }
+            },
+            equipped: true
+            },
+            range: {
+              value: a.description.match("(?<=\breach\s)(\w+)"),
+              units: "ft"
             }
           };
         
@@ -184,10 +189,14 @@ activateListeners(html) {
           thisItem.type = "weapon";
           if (a.description.includes("Melee")) {
             thisItem.data.actionType = "mwak";
+            thisItem.data.ability = "str";
+            thisItem.data.weaponType = "simpleM";
           } else if (a.description.includes("Ranged")) {
             thisItem.data.actionType = "rwak";
+            thisItem.data.ability = "dex";
+            thisItem.data.weaponType = "simpleR";
           }
-          // This only handles attacks with one damage component. Need to again collect all parts from a.description :(
+          // This attempts to handle attacks with more than one damage component, but can be buggy depending on the raw text
             let formula_regexp = /\(([^)]+)\)/g;
             let matches = [...a.description.matchAll(formula_regexp)];
             let dtype_regexp = /\w+(?=\s+damage)/g;
@@ -197,9 +206,6 @@ activateListeners(html) {
               thisItem.data.damage.parts.push([formula[1], dtypes[index][0].toLowerCase()]);
             });
             
-            //a.description.match(/\(([^)]+)\)/).forEach(function (value, i) {
-            //  thisItem.data.damage.parts.push([value, a.description.match(/\w+(?=\s+damage)/)[i].toLowerCase()]);
-            //});
         } else {
           thisItem.data.description.value = `<p>${a.description}</p>`;
           thisItem.type = "feat";
