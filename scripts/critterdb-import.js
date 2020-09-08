@@ -43,7 +43,6 @@ activateListeners(html) {
     // Determine if this is a single monster or a bestiary by checking for creatures array
     let parsedCritters = JSON.parse(critterJSON);
     let creatureArray = parsedCritters.creatures;
-    console.log(updateBool)
 
     if (creatureArray == null){ // One monster, load to catch-all compendium
       var bestiary = "MyCritters"
@@ -81,6 +80,45 @@ activateListeners(html) {
     // Generate Foundry Actor data structure and load
     for (let c of creatureArray) {
       console.log(`Importing ${c.name} into ${pack.collection}`);
+
+      // Handle speed
+      let spd = c.stats.speed.split(/,(.+)/); // Split on comma, assuming the first part is the "regular" speed
+      if (spd.length > 1) {
+        var thisSpeed = {"value": spd[0], "special": spd[1]};
+      } else {
+        var thisSpeed = {"value": c.stats.speed};
+      }
+
+      // Handle skills
+      // Dictionary to map skill names to foundry attributes
+      var skills_map = {
+        "Acrobatics": "acr",
+        "Animal Handling": "ani",
+        "Arcana": "arc",
+        "Athletics": "ath",
+        "Deception": "dec",
+        "History": "his",
+        "Insight": "ins",
+        "Intimidation": "itm",
+        "Investigation": "inv",
+        "Medicine": "med",
+        "Nature": "nat",
+        "Perception": "prc",
+        "Performance": "prf",
+        "Persuasion": "per",
+        "Religion": "rel",
+        "Sleight of Hand": "slt",
+        "Stealth": "ste",
+        "Survival": "sur"
+      };
+
+      let profBonus = c.stats.proficiencyBonus;
+      var foundrySkills = {};
+
+      for (let s of c.stats.skills){
+          foundrySkills[skills_map[s.name]] = {"value": 1, "prof": profBonus};
+          console.log(foundrySkills);
+      }
       
       // Create the temporary actor data structure
       let tempActor = {
@@ -110,8 +148,9 @@ activateListeners(html) {
             },
             cha: {
               value: c.stats.abilityScores.charisma
-            }
+            },
           },
+          skills: foundrySkills,
           attributes: {
             ac: {
               value: c.stats.armorClass
@@ -120,7 +159,8 @@ activateListeners(html) {
               value: c.stats.hitPoints,
               max: c.stats.hitPoints,
               formula: c.stats.hitPointsStr.match(/\(([^)]+)\)/)[1]
-            }
+            },
+            speed: thisSpeed
           },
           details: {
             alignment: c.stats.alignment,
@@ -129,27 +169,35 @@ activateListeners(html) {
             xp: {
               value: c.stats.experiencePoints
             },
-            source: `CritterDB - ${bestiary}`
+            source: `CritterDB - ${bestiary}`,
+            biography: {
+              value: c.flavor.description
+            },
+            environment: c.flavor.environment
           },
           traits: {
             size: size_dict[c.stats.size],
             di: {
-              value: c.stats.damageImmunities
+              value: c.stats.damageImmunities.map(v => v.toLowerCase())
             },
             dr: {
-              value: c.stats.damageResistances
+              value: c.stats.damageResistances.map(v => v.toLowerCase())
             },
             dv: {
-              value: c.stats.damageVulnerabilities
+              value: c.stats.damageVulnerabilities.map(v => v.toLowerCase())
             },
             ci: {
-              value: c.stats.conditionImmunities
+              value: c.stats.conditionImmunities.map(v => v.toLowerCase())
             },
-            senses: c.stats.senses.join()
+            senses: c.stats.senses.join(),
+            languages: {
+              value: c.stats.languages.map(v => v.toLowerCase())
+            }
           },
         }
       };
 
+      console.log(tempActor);
       // Create the actor
       let thisActor = await Actor.create(tempActor,{'temporary':true, 'displaySheet': false});
 
@@ -163,8 +211,6 @@ activateListeners(html) {
       for (let a of action_array) {
         // Detect type of action where "Attack:" indicates a "weapon", otherwise a "feat"
         var atype = a.description.includes("Attack:");
-        console.log(a.name);
-        console.log(atype);
 
         // Set up the Item data
         let thisItem = {
@@ -217,7 +263,6 @@ activateListeners(html) {
 
         // Create the item and add it to the actor
         let tempItem = await Item.create(thisItem, {'temporary': true, 'displaySheet': false});
-        console.log(tempItem);
         thisActor.data.items.push(tempItem);
       };
 

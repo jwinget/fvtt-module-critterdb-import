@@ -1,0 +1,1134 @@
+{
+  "name": "Test creature",
+  "type": "npc",
+  "data": {
+    "abilities": {
+      "str": {
+        "value": 18,
+        "proficient": 0,
+        "mod": 4,
+        "prof": 0,
+        "saveBonus": 0,
+        "checkBonus": 0,
+        "save": 4
+      },
+      "dex": {
+        "value": 12,
+        "proficient": 0,
+        "mod": 1,
+        "prof": 0,
+        "saveBonus": 0,
+        "checkBonus": 0,
+        "save": 1
+      },
+      "con": {
+        "value": 16,
+        "proficient": 0,
+        "mod": 3,
+        "prof": 0,
+        "saveBonus": 0,
+        "checkBonus": 0,
+        "save": 3
+      },
+      "int": {
+        "value": 8,
+        "proficient": 0,
+        "mod": -1,
+        "prof": 0,
+        "saveBonus": 0,
+        "checkBonus": 0,
+        "save": -1
+      },
+      "wis": {
+        "value": 10,
+        "proficient": 0,
+        "mod": 0,
+        "prof": 0,
+        "saveBonus": 0,
+        "checkBonus": 0,
+        "save": 0
+      },
+      "cha": {
+        "value": 12,
+        "proficient": 0,
+        "mod": 1,
+        "prof": 0,
+        "saveBonus": 0,
+        "checkBonus": 0,
+        "save": 1
+      },
+      "skills": {
+        "ath": {
+          "prof": 2
+        },
+        "ins": {
+          "prof": 2
+        },
+        "mod": null,
+        "prof": 0,
+        "saveBonus": 0,
+        "checkBonus": 0,
+        "save": null
+      }
+    },
+    "attributes": {
+      "ac": {
+        "value": 16
+      },
+      "hp": {
+        "value": 7,
+        "min": 0,
+        "max": 7,
+        "temp": 0,
+        "tempmax": 0,
+        "formula": "1d8 + 3"
+      },
+      "init": {
+        "value": 0,
+        "bonus": 0,
+        "mod": 1,
+        "prof": 0,
+        "total": 1
+      },
+      "spellcasting": "int",
+      "speed": {
+        "value": "25 ft.",
+        "special": " fly 30 ft."
+      },
+      "prof": 2,
+      "spelldc": 9
+    },
+    "details": {
+      "biography": {
+        "value": "This is the creature description",
+        "public": ""
+      },
+      "alignment": "Lawful Good",
+      "race": "",
+      "type": "Dwarf",
+      "environment": "The Underdark",
+      "cr": 0.125,
+      "spellLevel": 0,
+      "xp": {
+        "value": 25
+      },
+      "source": "CritterDB - MyCritters"
+    },
+    "traits": {
+      "size": "med",
+      "di": {
+        "value": [
+          "bludgeoning",
+          "slashing"
+        ],
+        "custom": ""
+      },
+      "dr": {
+        "value": [
+          "piercing",
+          "lightning"
+        ],
+        "custom": ""
+      },
+      "dv": {
+        "value": [
+          "fire",
+          "poison"
+        ],
+        "custom": ""
+      },
+      "ci": {
+        "value": [
+          "prone",
+          "petrified"
+        ],
+        "custom": ""
+      },
+      "senses": "Darkvision 60ft.",
+      "languages": {
+        "value": [
+          "common",
+          "dwarvish"
+        ],
+        "custom": ""
+      }
+    },
+    "currency": {
+      "pp": 0,
+      "gp": 0,
+      "ep": 0,
+      "sp": 0,
+      "cp": 0
+    },
+    "skills": {
+      "acr": {
+        "value": 0,
+        "ability": "dex",
+        "bonus": 0,
+        "mod": 1,
+        "prof": 0,
+        "total": 1,
+        "passive": 11
+      },
+      "ani": {
+        "value": 0,
+        "ability": "wis",
+        "bonus": 0,
+        "mod": 0,
+        "prof": 0,
+        "total": 0,
+        "passive": 10
+      },
+      "arc": {
+        "value": 0,
+        "ability": "int",
+        "bonus": 0,
+        "mod": -1,
+        "prof": 0,
+        "total": -1,
+        "passive": 9
+      },
+      "ath": {
+        "value": 0,
+        "ability": "str",
+        "bonus": 0,
+        "mod": 4,
+        "prof": 0,
+        "total": 4,
+        "passive": 14
+      },
+      "dec": {
+        "value": 0,
+        "ability": "cha",
+        "bonus": 0,
+        "mod": 1,
+        "prof": 0,
+        "total": 1,
+        "passive": 11
+      },
+      "his": {
+        "value": 0,
+        "ability": "int",
+        "bonus": 0,
+        "mod": -1,
+        "prof": 0,
+        "total": -1,
+        "passive": 9
+      },
+      "ins": {
+        "value": 0,
+        "ability": "wis",
+        "bonus": 0,
+        "mod": 0,
+        "prof": 0,
+        "total": 0,
+        "passive": 10
+      },
+      "itm": {
+        "value": 0,
+        "ability": "cha",
+        "bonus": 0,
+        "mod": 1,
+        "prof": 0,
+        "total": 1,
+        "passive": 11
+      },
+      "inv": {
+        "value": 0,
+        "ability": "int",
+        "bonus": 0,
+        "mod": -1,
+        "prof": 0,
+        "total": -1,
+        "passive": 9
+      },
+      "med": {
+        "value": 0,
+        "ability": "wis",
+        "bonus": 0,
+        "mod": 0,
+        "prof": 0,
+        "total": 0,
+        "passive": 10
+      },
+      "nat": {
+        "value": 0,
+        "ability": "int",
+        "bonus": 0,
+        "mod": -1,
+        "prof": 0,
+        "total": -1,
+        "passive": 9
+      },
+      "prc": {
+        "value": 0,
+        "ability": "wis",
+        "bonus": 0,
+        "mod": 0,
+        "prof": 0,
+        "total": 0,
+        "passive": 10
+      },
+      "prf": {
+        "value": 0,
+        "ability": "cha",
+        "bonus": 0,
+        "mod": 1,
+        "prof": 0,
+        "total": 1,
+        "passive": 11
+      },
+      "per": {
+        "value": 0,
+        "ability": "cha",
+        "bonus": 0,
+        "mod": 1,
+        "prof": 0,
+        "total": 1,
+        "passive": 11
+      },
+      "rel": {
+        "value": 0,
+        "ability": "int",
+        "bonus": 0,
+        "mod": -1,
+        "prof": 0,
+        "total": -1,
+        "passive": 9
+      },
+      "slt": {
+        "value": 0,
+        "ability": "dex",
+        "bonus": 0,
+        "mod": 1,
+        "prof": 0,
+        "total": 1,
+        "passive": 11
+      },
+      "ste": {
+        "value": 0,
+        "ability": "dex",
+        "bonus": 0,
+        "mod": 1,
+        "prof": 0,
+        "total": 1,
+        "passive": 11
+      },
+      "sur": {
+        "value": 0,
+        "ability": "wis",
+        "bonus": 0,
+        "mod": 0,
+        "prof": 0,
+        "total": 0,
+        "passive": 10
+      }
+    },
+    "spells": {
+      "spell1": {
+        "value": 0,
+        "max": 0,
+        "override": null
+      },
+      "spell2": {
+        "value": 0,
+        "max": 0,
+        "override": null
+      },
+      "spell3": {
+        "value": 0,
+        "max": 0,
+        "override": null
+      },
+      "spell4": {
+        "value": 0,
+        "max": 0,
+        "override": null
+      },
+      "spell5": {
+        "value": 0,
+        "max": 0,
+        "override": null
+      },
+      "spell6": {
+        "value": 0,
+        "max": 0,
+        "override": null
+      },
+      "spell7": {
+        "value": 0,
+        "max": 0,
+        "override": null
+      },
+      "spell8": {
+        "value": 0,
+        "max": 0,
+        "override": null
+      },
+      "spell9": {
+        "value": 0,
+        "max": 0,
+        "override": null
+      },
+      "pact": {
+        "value": 0,
+        "max": 0,
+        "override": null,
+        "level": 0
+      }
+    },
+    "bonuses": {
+      "mwak": {
+        "attack": "",
+        "damage": ""
+      },
+      "rwak": {
+        "attack": "",
+        "damage": ""
+      },
+      "msak": {
+        "attack": "",
+        "damage": ""
+      },
+      "rsak": {
+        "attack": "",
+        "damage": ""
+      },
+      "abilities": {
+        "check": "",
+        "save": "",
+        "skill": ""
+      },
+      "spell": {
+        "dc": ""
+      }
+    },
+    "resources": {
+      "legact": {
+        "value": 0,
+        "max": 0
+      },
+      "legres": {
+        "value": 0,
+        "max": 0
+      },
+      "lair": {
+        "value": 0,
+        "initiative": 0
+      }
+    }
+  },
+  "sort": 200001,
+  "flags": {
+    "exportSource": {
+      "world": "module-dev",
+      "system": "dnd5e",
+      "coreVersion": "0.6.6",
+      "systemVersion": 0.96
+    }
+  },
+  "img": "https://ih1.redbubble.net/image.29232733.2328/flat,1000x1000,075,f.u1.jpg",
+  "token": {
+    "flags": {},
+    "name": "Test creature",
+    "displayName": 0,
+    "img": "https://ih1.redbubble.net/image.29232733.2328/flat,1000x1000,075,f.u1.jpg",
+    "tint": null,
+    "width": 1,
+    "height": 1,
+    "scale": 1,
+    "lockRotation": false,
+    "rotation": 0,
+    "vision": false,
+    "dimSight": 0,
+    "brightSight": 0,
+    "dimLight": 0,
+    "brightLight": 0,
+    "sightAngle": 360,
+    "lightAngle": 360,
+    "lightAlpha": 1,
+    "actorId": "qvG7SV2SAsLxLLuV",
+    "actorLink": false,
+    "actorData": {},
+    "disposition": -1,
+    "displayBars": 0,
+    "bar1": {},
+    "bar2": {},
+    "randomImg": false
+  },
+  "items": [
+    {
+      "_id": "MEuvSH7UvfuEyVHV",
+      "flags": {},
+      "name": "New Item",
+      "type": "feat",
+      "img": "icons/svg/mystery-man.svg",
+      "data": {
+        "description": {
+          "value": "<p></p>",
+          "chat": "",
+          "unidentified": ""
+        },
+        "source": "",
+        "activation": {
+          "type": "",
+          "cost": 0,
+          "condition": ""
+        },
+        "duration": {
+          "value": null,
+          "units": ""
+        },
+        "target": {
+          "value": null,
+          "units": "",
+          "type": ""
+        },
+        "range": {
+          "value": null,
+          "long": null,
+          "units": ""
+        },
+        "uses": {
+          "value": 0,
+          "max": 0,
+          "per": null
+        },
+        "consume": {
+          "type": "",
+          "target": null,
+          "amount": null
+        },
+        "ability": null,
+        "actionType": null,
+        "attackBonus": 0,
+        "chatFlavor": "",
+        "critical": null,
+        "damage": {
+          "parts": [],
+          "versatile": ""
+        },
+        "formula": "",
+        "save": {
+          "ability": "",
+          "dc": null,
+          "scaling": "spell"
+        },
+        "requirements": "",
+        "recharge": {
+          "value": null,
+          "charged": false
+        }
+      },
+      "labels": {
+        "featType": "Passive",
+        "activation": "",
+        "target": "",
+        "range": "",
+        "duration": "",
+        "recharge": "Recharge [null]",
+        "save": "",
+        "damage": "",
+        "damageTypes": ""
+      },
+      "isStack": false,
+      "hasUses": false,
+      "isOnCooldown": false,
+      "isDepleted": false,
+      "hasTarget": false
+    },
+    {
+      "_id": "CzjZXto5X5Z2Ctvo",
+      "flags": {},
+      "name": "Spellcasting",
+      "type": "feat",
+      "img": "icons/svg/mystery-man.svg",
+      "data": {
+        "description": {
+          "value": "<p>The test creature is a 1st-level spellcaster. The test creature's spellcasting ability is Charisma (spell save DC 11, +3 to hit with spell attacks). The test creature has the following sorcerer spells prepared:\n\nCantrip (at will): <i>prestidigitation</i>, <i>dancing lights</i>\n1st level (2 slots): <i>magic missile</i>, <i>detect magic</i></p>",
+          "chat": "",
+          "unidentified": ""
+        },
+        "source": "",
+        "activation": {
+          "type": "",
+          "cost": 0,
+          "condition": ""
+        },
+        "duration": {
+          "value": null,
+          "units": ""
+        },
+        "target": {
+          "value": null,
+          "units": "",
+          "type": ""
+        },
+        "range": {
+          "value": null,
+          "long": null,
+          "units": ""
+        },
+        "uses": {
+          "value": 0,
+          "max": 0,
+          "per": null
+        },
+        "consume": {
+          "type": "",
+          "target": null,
+          "amount": null
+        },
+        "ability": null,
+        "actionType": null,
+        "attackBonus": 0,
+        "chatFlavor": "",
+        "critical": null,
+        "damage": {
+          "parts": [],
+          "versatile": ""
+        },
+        "formula": "",
+        "save": {
+          "ability": "",
+          "dc": null,
+          "scaling": "spell"
+        },
+        "requirements": "",
+        "recharge": {
+          "value": null,
+          "charged": false
+        }
+      },
+      "labels": {
+        "featType": "Passive",
+        "activation": "",
+        "target": "",
+        "range": "",
+        "duration": "",
+        "recharge": "Recharge [null]",
+        "save": "",
+        "damage": "",
+        "damageTypes": ""
+      },
+      "isStack": false,
+      "hasUses": false,
+      "isOnCooldown": false,
+      "isDepleted": false,
+      "hasTarget": false
+    },
+    {
+      "_id": "fT7MEpO5MAvh9oKT",
+      "flags": {},
+      "name": "Shortsword",
+      "type": "weapon",
+      "img": "icons/svg/mystery-man.svg",
+      "data": {
+        "description": {
+          "value": "<section class=\"secret\"><p><i>Melee Weapon Attack:</i> +0 to hit, reach 5 ft., one target. <i>Hit:</i> 3 (1d6 + 0) piercing damage.</p>",
+          "chat": "",
+          "unidentified": ""
+        },
+        "source": "",
+        "quantity": 1,
+        "weight": 0,
+        "price": 0,
+        "attuned": false,
+        "equipped": true,
+        "rarity": "",
+        "identified": true,
+        "activation": {
+          "type": "",
+          "cost": 0,
+          "condition": ""
+        },
+        "duration": {
+          "value": null,
+          "units": ""
+        },
+        "target": {
+          "value": null,
+          "units": "",
+          "type": ""
+        },
+        "range": {
+          "value": null,
+          "long": null,
+          "units": ""
+        },
+        "uses": {
+          "value": 0,
+          "max": 0,
+          "per": null
+        },
+        "consume": {
+          "type": "",
+          "target": null,
+          "amount": null
+        },
+        "ability": "str",
+        "actionType": "mwak",
+        "attackBonus": 0,
+        "chatFlavor": "",
+        "critical": null,
+        "damage": {
+          "parts": [
+            [
+              "1d6 + 0",
+              "piercing"
+            ]
+          ],
+          "versatile": ""
+        },
+        "formula": "",
+        "save": {
+          "ability": "",
+          "dc": null,
+          "scaling": "spell"
+        },
+        "armor": {
+          "value": 10
+        },
+        "hp": {
+          "value": 0,
+          "max": 0,
+          "dt": null,
+          "conditions": ""
+        },
+        "weaponType": "simpleM",
+        "properties": {},
+        "proficient": true
+      },
+      "labels": {
+        "activation": "",
+        "target": "",
+        "range": "",
+        "duration": "",
+        "recharge": "Recharge [undefined]",
+        "save": "",
+        "damage": "1d6 + 0",
+        "damageTypes": "Piercing"
+      },
+      "isStack": false,
+      "hasUses": false,
+      "hasTarget": false
+    },
+    {
+      "_id": "WcmOQa8tZjIPQcOj",
+      "flags": {},
+      "name": "Shortbow",
+      "type": "weapon",
+      "img": "icons/svg/mystery-man.svg",
+      "data": {
+        "description": {
+          "value": "<section class=\"secret\"><p><i>Ranged Weapon Attack:</i> +6 to hit, range 80/320 ft., one target. <i>Hit:</i> 7 (1d6 + 4) piercing damage.</p>",
+          "chat": "",
+          "unidentified": ""
+        },
+        "source": "",
+        "quantity": 1,
+        "weight": 0,
+        "price": 0,
+        "attuned": false,
+        "equipped": true,
+        "rarity": "",
+        "identified": true,
+        "activation": {
+          "type": "",
+          "cost": 0,
+          "condition": ""
+        },
+        "duration": {
+          "value": null,
+          "units": ""
+        },
+        "target": {
+          "value": null,
+          "units": "",
+          "type": ""
+        },
+        "range": {
+          "value": null,
+          "long": null,
+          "units": ""
+        },
+        "uses": {
+          "value": 0,
+          "max": 0,
+          "per": null
+        },
+        "consume": {
+          "type": "",
+          "target": null,
+          "amount": null
+        },
+        "ability": "dex",
+        "actionType": "rwak",
+        "attackBonus": 0,
+        "chatFlavor": "",
+        "critical": null,
+        "damage": {
+          "parts": [
+            [
+              "1d6 + 4",
+              "piercing"
+            ]
+          ],
+          "versatile": ""
+        },
+        "formula": "",
+        "save": {
+          "ability": "",
+          "dc": null,
+          "scaling": "spell"
+        },
+        "armor": {
+          "value": 10
+        },
+        "hp": {
+          "value": 0,
+          "max": 0,
+          "dt": null,
+          "conditions": ""
+        },
+        "weaponType": "simpleR",
+        "properties": {},
+        "proficient": true
+      },
+      "labels": {
+        "activation": "",
+        "target": "",
+        "range": "",
+        "duration": "",
+        "recharge": "Recharge [undefined]",
+        "save": "",
+        "damage": "1d6 + 4",
+        "damageTypes": "Piercing"
+      },
+      "isStack": false,
+      "hasUses": false,
+      "hasTarget": false
+    },
+    {
+      "_id": "mPNDOimerh0eUW5u",
+      "flags": {},
+      "name": "Dodge",
+      "type": "feat",
+      "img": "icons/svg/mystery-man.svg",
+      "data": {
+        "description": {
+          "value": "<p>Once per turn the creature can use <i>dodge</i> as a reaction</p>",
+          "chat": "",
+          "unidentified": ""
+        },
+        "source": "",
+        "activation": {
+          "type": "",
+          "cost": 0,
+          "condition": ""
+        },
+        "duration": {
+          "value": null,
+          "units": ""
+        },
+        "target": {
+          "value": null,
+          "units": "",
+          "type": ""
+        },
+        "range": {
+          "value": null,
+          "long": null,
+          "units": ""
+        },
+        "uses": {
+          "value": 0,
+          "max": 0,
+          "per": null
+        },
+        "consume": {
+          "type": "",
+          "target": null,
+          "amount": null
+        },
+        "ability": null,
+        "actionType": null,
+        "attackBonus": 0,
+        "chatFlavor": "",
+        "critical": null,
+        "damage": {
+          "parts": [],
+          "versatile": ""
+        },
+        "formula": "",
+        "save": {
+          "ability": "",
+          "dc": null,
+          "scaling": "spell"
+        },
+        "requirements": "",
+        "recharge": {
+          "value": null,
+          "charged": false
+        }
+      },
+      "labels": {
+        "featType": "Passive",
+        "activation": "",
+        "target": "",
+        "range": "",
+        "duration": "",
+        "recharge": "Recharge [null]",
+        "save": "",
+        "damage": "",
+        "damageTypes": ""
+      },
+      "isStack": false,
+      "hasUses": false,
+      "isOnCooldown": false,
+      "isDepleted": false,
+      "hasTarget": false
+    },
+    {
+      "_id": "wzLRnVIhInA7Qeq8",
+      "flags": {},
+      "name": "Develop",
+      "type": "feat",
+      "img": "icons/svg/mystery-man.svg",
+      "data": {
+        "description": {
+          "value": "<p>The test creature can develop new modules</p>",
+          "chat": "",
+          "unidentified": ""
+        },
+        "source": "",
+        "activation": {
+          "type": "",
+          "cost": 0,
+          "condition": ""
+        },
+        "duration": {
+          "value": null,
+          "units": ""
+        },
+        "target": {
+          "value": null,
+          "units": "",
+          "type": ""
+        },
+        "range": {
+          "value": null,
+          "long": null,
+          "units": ""
+        },
+        "uses": {
+          "value": 0,
+          "max": 0,
+          "per": null
+        },
+        "consume": {
+          "type": "",
+          "target": null,
+          "amount": null
+        },
+        "ability": null,
+        "actionType": null,
+        "attackBonus": 0,
+        "chatFlavor": "",
+        "critical": null,
+        "damage": {
+          "parts": [],
+          "versatile": ""
+        },
+        "formula": "",
+        "save": {
+          "ability": "",
+          "dc": null,
+          "scaling": "spell"
+        },
+        "requirements": "",
+        "recharge": {
+          "value": null,
+          "charged": false
+        }
+      },
+      "labels": {
+        "featType": "Passive",
+        "activation": "",
+        "target": "",
+        "range": "",
+        "duration": "",
+        "recharge": "Recharge [null]",
+        "save": "",
+        "damage": "",
+        "damageTypes": ""
+      },
+      "isStack": false,
+      "hasUses": false,
+      "isOnCooldown": false,
+      "isDepleted": false,
+      "hasTarget": false
+    },
+    {
+      "_id": "pLWn6mUoaOvd9AV6",
+      "flags": {},
+      "name": "Sleep",
+      "type": "feat",
+      "img": "icons/svg/mystery-man.svg",
+      "data": {
+        "description": {
+          "value": "<p>The test creature can take a nap</p>",
+          "chat": "",
+          "unidentified": ""
+        },
+        "source": "",
+        "activation": {
+          "type": "",
+          "cost": 0,
+          "condition": ""
+        },
+        "duration": {
+          "value": null,
+          "units": ""
+        },
+        "target": {
+          "value": null,
+          "units": "",
+          "type": ""
+        },
+        "range": {
+          "value": null,
+          "long": null,
+          "units": ""
+        },
+        "uses": {
+          "value": 0,
+          "max": 0,
+          "per": null
+        },
+        "consume": {
+          "type": "",
+          "target": null,
+          "amount": null
+        },
+        "ability": null,
+        "actionType": null,
+        "attackBonus": 0,
+        "chatFlavor": "",
+        "critical": null,
+        "damage": {
+          "parts": [],
+          "versatile": ""
+        },
+        "formula": "",
+        "save": {
+          "ability": "",
+          "dc": null,
+          "scaling": "spell"
+        },
+        "requirements": "",
+        "recharge": {
+          "value": null,
+          "charged": false
+        }
+      },
+      "labels": {
+        "featType": "Passive",
+        "activation": "",
+        "target": "",
+        "range": "",
+        "duration": "",
+        "recharge": "Recharge [null]",
+        "save": "",
+        "damage": "",
+        "damageTypes": ""
+      },
+      "isStack": false,
+      "hasUses": false,
+      "isOnCooldown": false,
+      "isDepleted": false,
+      "hasTarget": false
+    },
+    {
+      "_id": "QCLvYce14xWGfp4V",
+      "flags": {},
+      "name": "Eat",
+      "type": "feat",
+      "img": "icons/svg/mystery-man.svg",
+      "data": {
+        "description": {
+          "value": "<p>Nom nom nom</p>",
+          "chat": "",
+          "unidentified": ""
+        },
+        "source": "",
+        "activation": {
+          "type": "",
+          "cost": 0,
+          "condition": ""
+        },
+        "duration": {
+          "value": null,
+          "units": ""
+        },
+        "target": {
+          "value": null,
+          "units": "",
+          "type": ""
+        },
+        "range": {
+          "value": null,
+          "long": null,
+          "units": ""
+        },
+        "uses": {
+          "value": 0,
+          "max": 0,
+          "per": null
+        },
+        "consume": {
+          "type": "",
+          "target": null,
+          "amount": null
+        },
+        "ability": null,
+        "actionType": null,
+        "attackBonus": 0,
+        "chatFlavor": "",
+        "critical": null,
+        "damage": {
+          "parts": [],
+          "versatile": ""
+        },
+        "formula": "",
+        "save": {
+          "ability": "",
+          "dc": null,
+          "scaling": "spell"
+        },
+        "requirements": "",
+        "recharge": {
+          "value": null,
+          "charged": false
+        }
+      },
+      "labels": {
+        "featType": "Passive",
+        "activation": "",
+        "target": "",
+        "range": "",
+        "duration": "",
+        "recharge": "Recharge [null]",
+        "save": "",
+        "damage": "",
+        "damageTypes": ""
+      },
+      "isStack": false,
+      "hasUses": false,
+      "isOnCooldown": false,
+      "isDepleted": false,
+      "hasTarget": false
+    }
+  ],
+  "_id": "qvG7SV2SAsLxLLuV"
+}

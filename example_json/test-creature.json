@@ -1,0 +1,167 @@
+{
+    "flavor": {
+        "faction": "Developers",
+        "environment": "The Underdark",
+        "description": "This is the creature description",
+        "nameIsProper": false,
+        "imageUrl": "https://ih1.redbubble.net/image.29232733.2328/flat,1000x1000,075,f.u1.jpg",
+        "descriptionHtml": {}
+    },
+    "stats": {
+        "size": "Medium",
+        "race": "Dwarf",
+        "alignment": "Lawful Good",
+        "armorType": "Chain mail",
+        "armorClass": 16,
+        "numHitDie": 1,
+        "speed": "25 ft., fly 30 ft.",
+        "abilityScores": {
+            "strength": 18,
+            "dexterity": 12,
+            "constitution": 16,
+            "intelligence": 8,
+            "wisdom": 10,
+            "charisma": 12
+        },
+        "proficiencyBonus": 2,
+        "damageVulnerabilities": [
+            "Fire",
+            "Poison"
+        ],
+        "damageResistances": [
+            "Piercing",
+            "Lightning"
+        ],
+        "damageImmunities": [
+            "Bludgeoning",
+            "Slashing"
+        ],
+        "conditionImmunities": [
+            "Prone",
+            "Petrified"
+        ],
+        "senses": [
+            "Darkvision 60ft."
+        ],
+        "languages": [
+            "Common",
+            "Dwarvish"
+        ],
+        "challengeRating": 0.125,
+        "experiencePoints": 25,
+        "legendaryActionsPerRound": 3,
+        "legendaryActionsDescription": "The test creature can take 3 legendary actions, choosing from the options below. Only one legendary action option can be used at a time and only at the end of another creature's turn. The test creature regains spent legendary actions at the start of its turn.",
+        "savingThrows": [
+            {
+                "ability": "strength",
+                "proficient": true,
+                "modifier": 6,
+                "modifierStr": "Str +6",
+                "$$hashKey": "object:3659"
+            }
+        ],
+        "skills": [
+            {
+                "name": "Athletics",
+                "proficient": true,
+                "modifier": 6,
+                "modifierStr": "Athletics +6",
+                "$$hashKey": "object:3663"
+            },
+            {
+                "name": "Insight",
+                "proficient": true,
+                "modifier": 2,
+                "modifierStr": "Insight +2",
+                "$$hashKey": "object:3664"
+            }
+        ],
+        "additionalAbilities": [
+            {
+                "name": "",
+                "description": "",
+                "descriptionHtml": "",
+                "$$hashKey": "object:3599"
+            },
+            {
+                "name": "Spellcasting",
+                "description": "The test creature is a 1st-level spellcaster. The test creature's spellcasting ability is Charisma (spell save DC 11, +3 to hit with spell attacks). The test creature has the following sorcerer spells prepared:\n\nCantrip (at will): <i>prestidigitation</i>, <i>dancing lights</i>\n1st level (2 slots): <i>magic missile</i>, <i>detect magic</i>",
+                "descriptionHtml": {},
+                "$$hashKey": "object:3600"
+            }
+        ],
+        "actions": [
+            {
+                "name": "Shortsword",
+                "description": "<i>Melee Weapon Attack:</i> +0 to hit, reach 5 ft., one target. <i>Hit:</i> 3 (1d6 + 0) piercing damage.",
+                "descriptionHtml": {},
+                "$$hashKey": "object:3607"
+            },
+            {
+                "name": "Shortbow",
+                "description": "<i>Ranged Weapon Attack:</i> +6 to hit, range 80/320 ft., one target. <i>Hit:</i> 7 (1d6 + 4) piercing damage.",
+                "descriptionHtml": {},
+                "$$hashKey": "object:3608"
+            }
+        ],
+        "reactions": [
+            {
+                "name": "Dodge",
+                "description": "Once per turn the creature can use <i>dodge</i> as a reaction",
+                "descriptionHtml": {},
+                "$$hashKey": "object:3615"
+            }
+        ],
+        "legendaryActions": [
+            {
+                "name": "Develop",
+                "description": "The test creature can develop new modules",
+                "descriptionHtml": {},
+                "$$hashKey": "object:3622"
+            },
+            {
+                "name": "Sleep",
+                "description": "The test creature can take a nap",
+                "descriptionHtml": {},
+                "$$hashKey": "object:3623"
+            },
+            {
+                "name": "Eat",
+                "description": "Nom nom nom",
+                "descriptionHtml": {},
+                "$$hashKey": "object:3624"
+            }
+        ],
+        "hitDieSize": 8,
+        "armorTypeStr": "(Chain mail)",
+        "abilityScoreModifiers": {
+            "strength": 4,
+            "dexterity": 1,
+            "constitution": 3,
+            "intelligence": -1,
+            "wisdom": 0,
+            "charisma": 1
+        },
+        "abilityScoreStrs": {
+            "strength": "18 (+4)",
+            "dexterity": "12 (+1)",
+            "constitution": "16 (+3)",
+            "intelligence": "8 (–1)",
+            "wisdom": "10 (+0)",
+            "charisma": "12 (+1)"
+        },
+        "extraHealthFromConstitution": 3,
+        "hitPoints": 7,
+        "hitPointsStr": "7 (1d8 + 3)",
+        "legendaryActionsDescriptionHtml": {},
+        "passivePerception": 10,
+        "challengeRatingStr": "1/8"
+    },
+    "sharing": {
+        "linkSharingEnabled": false
+    },
+    "_id": "5f5583f48b3e3b3d0d4bf5f9",
+    "name": "Test creature",
+    "bestiaryId": "5f5537388b3e3b3d0d4bef15",
+    "__v": 0
+}
