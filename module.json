@@ -4,14 +4,14 @@
     "description": "A module to import CritterDB bestiaries into Foundry VTT compendia",
     "authors": [
       {
-        "name": "jwinget",
+        "name": "Jason Winget",
         "email": "jwinget@gmail.com",
         "url": "https://github.com/jwinget"
       },
       {
-        "name": "seriallos",
+        "name": "Blake Tacklind",
         "email": "",
-        "url": "https://github.com/seriallos"
+        "url": "https://github.com/BlakeTacklind"
       }
     ],
     "version": "0.1.2",
