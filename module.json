@@ -14,9 +14,9 @@
         "url": "https://github.com/seriallos"
       }
     ],
-    "version": "1.0.0",
+    "version": "1.0.1",
     "minimumCoreVersion": "0.6.6",
-    "compatibleCoreVersion": "0.6.6",
+    "compatibleCoreVersion": "0.6.7",
     "system": "dnd5e",
     "styles": [
       "styles/style.css"
@@ -25,6 +25,6 @@
         "scripts/critterdb-import.js"
       ],
     "url": "https://github.com/jwinget/fvtt-module-critterdb-import/",
-    "manifest": "https://github.com/jwinget/fvtt-module-critterdb-import/releases/download/1.0.0/module.json",
-    "download": "https://github.com/jwinget/fvtt-module-critterdb-import/releases/download/1.0.0/critterdb-import.zip"
+    "manifest": "https://github.com/jwinget/fvtt-module-critterdb-import/releases/download/1.0.1/module.json",
+    "download": "https://github.com/jwinget/fvtt-module-critterdb-import/releases/download/1.0.1/critterdb-import.zip"
 }
