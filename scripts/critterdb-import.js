@@ -117,20 +117,9 @@ activateListeners(html) {
 
       for (let s of c.stats.skills){
           foundrySkills[skills_map[s.name]] = {"value": 1, "prof": profBonus};
-          console.log(foundrySkills);
       }
-      
-      // Create the temporary actor data structure
-      let tempActor = {
-        name: c.name,
-        type: "npc",
-        img: c.flavor.imageUrl,
-        token: {
-          name: c.name,
-          img: c.flavor.imageUrl
-        },
-        data: {
-          abilities: {
+
+      var foundryAbilities = {
             str: {
               value: c.stats.abilityScores.strength
             },
@@ -149,7 +138,34 @@ activateListeners(html) {
             cha: {
               value: c.stats.abilityScores.charisma
             },
-          },
+          };
+
+      // Dictionary to map db ability names to foundry ability names
+      var ability_map = {
+        "strength": "str",
+        "dexterity": "dex",
+        "constitution": "con",
+        "intelligence": "int",
+        "wisdom": "wis",
+        "charisma": "cha"
+      };
+
+      for (let save of c.stats.savingThrows){
+        //uses the default proficency which is based on CR
+        foundryAbilities[ability_map[save.ability]].proficient = 1
+      }
+
+      // Create the temporary actor data structure
+      let tempActor = {
+        name: c.name,
+        type: "npc",
+        img: c.flavor.imageUrl,
+        token: {
+          name: c.name,
+          img: c.flavor.imageUrl
+        },
+        data: {
+          abilities: foundryAbilities,
           skills: foundrySkills,
           attributes: {
             ac: {
