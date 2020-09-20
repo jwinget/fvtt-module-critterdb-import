@@ -213,6 +213,32 @@ activateListeners(html) {
         }
       };
 
+      tempActor.data.resources = {};
+
+      //check if creature has any legendary actions
+      if (c.stats.legendaryActions.length > 0){
+        tempActor.data.resources.legact = {
+          value: c.stats.legendaryActionsPerRound,
+          max: c.stats.legendaryActionsPerRound
+        };
+      }
+
+      //check for a string related to legendary resistance in the aditional abilities
+      var legRes = c.stats.additionalAbilities.find(aa => aa.name.startsWith("Legendary Resistance"));
+      if (legRes != null){
+        var value = legRes.name.match(/Legendary Resistance \(([0-9]+)\/Day\)/);
+        //just assume 3 if we cant match the number
+        var number = 3;
+        if (value != null){
+          number = parseInt(value[1]);
+        }
+
+        tempActor.data.resources.legres = {
+          value: number,
+          max: number
+        };
+      }
+
       console.log(tempActor);
       // Create the actor
       let thisActor = await Actor.create(tempActor,{'temporary':true, 'displaySheet': false});
