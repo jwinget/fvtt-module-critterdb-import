@@ -1,7 +1,8 @@
 # fvtt-module-critterdb-import
 Foundry VTT module to import bestiaries from CritterDB
 
-This module is currently a work in progress and is not fully functional.
+This module is currently a work in progress and imported creatures should be checked carefully. Please report any bugs or feature request as GitHub Issues.
+
 It will currently import major stats and some other flavor (size, type, etc), but does not fully handle attacks, actions, and spells.
 Due to the way CritterDB data is (un)structured, automatically handling attacks and spells is next to impossible. This module will get you 90% of the way there, however you will need to edit the imported NPCs to make full use of rolls and other Foundry features.
 It will attempt to automatically handle weapon attacks, however it assumes all melee weapons are STR and ranged weapons are DEX based. Damage rolls for simple attacks should be handled properly but should be checked carefully, especially for weapons with multiple damage parts (e.g. 2d8 bludgeoning plus 1d6 force).

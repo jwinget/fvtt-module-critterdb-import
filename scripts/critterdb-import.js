@@ -117,20 +117,9 @@ activateListeners(html) {
 
       for (let s of c.stats.skills){
           foundrySkills[skills_map[s.name]] = {"value": 1, "prof": profBonus};
-          console.log(foundrySkills);
       }
-      
-      // Create the temporary actor data structure
-      let tempActor = {
-        name: c.name,
-        type: "npc",
-        img: c.flavor.imageUrl,
-        token: {
-          name: c.name,
-          img: c.flavor.imageUrl
-        },
-        data: {
-          abilities: {
+
+      var foundryAbilities = {
             str: {
               value: c.stats.abilityScores.strength
             },
@@ -149,7 +138,34 @@ activateListeners(html) {
             cha: {
               value: c.stats.abilityScores.charisma
             },
-          },
+          };
+
+      // Dictionary to map db ability names to foundry ability names
+      var ability_map = {
+        "strength": "str",
+        "dexterity": "dex",
+        "constitution": "con",
+        "intelligence": "int",
+        "wisdom": "wis",
+        "charisma": "cha"
+      };
+
+      for (let save of c.stats.savingThrows){
+        //uses the default proficency which is based on CR
+        foundryAbilities[ability_map[save.ability]].proficient = 1
+      }
+
+      // Create the temporary actor data structure
+      let tempActor = {
+        name: c.name,
+        type: "npc",
+        img: c.flavor.imageUrl,
+        token: {
+          name: c.name,
+          img: c.flavor.imageUrl
+        },
+        data: {
+          abilities: foundryAbilities,
           skills: foundrySkills,
           attributes: {
             ac: {
@@ -196,6 +212,32 @@ activateListeners(html) {
           },
         }
       };
+
+      tempActor.data.resources = {};
+
+      //check if creature has any legendary actions
+      if (c.stats.legendaryActions.length > 0){
+        tempActor.data.resources.legact = {
+          value: c.stats.legendaryActionsPerRound,
+          max: c.stats.legendaryActionsPerRound
+        };
+      }
+
+      //check for a string related to legendary resistance in the aditional abilities
+      var legRes = c.stats.additionalAbilities.find(aa => aa.name.startsWith("Legendary Resistance"));
+      if (legRes != null){
+        var value = legRes.name.match(/Legendary Resistance \(([0-9]+)\/Day\)/);
+        //just assume 3 if we cant match the number
+        var number = 3;
+        if (value != null){
+          number = parseInt(value[1]);
+        }
+
+        tempActor.data.resources.legres = {
+          value: number,
+          max: number
+        };
+      }
 
       console.log(tempActor);
       // Create the actor
