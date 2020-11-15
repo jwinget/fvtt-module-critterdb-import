@@ -14,7 +14,7 @@
         "url": "https://github.com/BlakeTacklind"
       }
     ],
-    "version": "1.0.3",
+    "version": "1.0.4",
     "minimumCoreVersion": "0.6.6",
     "compatibleCoreVersion": "0.7.7",
     "system": "dnd5e",
@@ -25,6 +25,6 @@
         "scripts/critterdb-import.js"
       ],
     "url": "https://github.com/jwinget/fvtt-module-critterdb-import/",
-    "manifest": "https://github.com/jwinget/fvtt-module-critterdb-import/releases/download/1.0.3/module.json",
-    "download": "https://github.com/jwinget/fvtt-module-critterdb-import/releases/download/1.0.3/critterdb-import.zip"
+    "manifest": "https://github.com/jwinget/fvtt-module-critterdb-import/releases/download/1.0.4/module.json",
+    "download": "https://github.com/jwinget/fvtt-module-critterdb-import/releases/download/1.0.4/critterdb-import.zip"
 }
