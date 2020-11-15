@@ -155,14 +155,21 @@ activateListeners(html) {
         foundryAbilities[ability_map[save.ability]].proficient = 1
       }
 
+      // Find image if present
+      if (c.flavor.imageUrl) {
+        var img_url = c.flavor.imageUrl;
+      } else {
+        img_url = "icons/mystery-man.png";
+      }
+
       // Create the temporary actor data structure
       let tempActor = {
         name: c.name,
         type: "npc",
-        img: c.flavor.imageUrl,
+        img: img_url,
         token: {
           name: c.name,
-          img: c.flavor.imageUrl
+          img: img_url
         },
         data: {
           abilities: foundryAbilities,
