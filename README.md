@@ -1,5 +1,5 @@
 # fvtt-module-critterdb-import
-Foundry VTT module to import bestiaries from CritterDB
+Foundry VTT module to import homebrew bestiaries from CritterDB
 
 This module is currently a work in progress and imported creatures should be checked carefully. Please report any bugs or feature request as GitHub Issues.
 
