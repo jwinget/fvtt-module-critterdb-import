@@ -43,6 +43,7 @@ activateListeners(html) {
     // Determine if this is a single monster or a bestiary by checking for creatures array
     let parsedCritters = JSON.parse(critterJSON);
     let creatureArray = parsedCritters.creatures;
+    // console.log(updateBool)
 
     if (creatureArray == null){ // One monster, load to catch-all compendium
       var bestiary = "MyCritters"
@@ -80,46 +81,25 @@ activateListeners(html) {
     // Generate Foundry Actor data structure and load
     for (let c of creatureArray) {
       console.log(`Importing ${c.name} into ${pack.collection}`);
-
-      // Handle speed
-      let spd = c.stats.speed.split(/,(.+)/); // Split on comma, assuming the first part is the "regular" speed
-      if (spd.length > 1) {
-        var thisSpeed = {"value": spd[0], "special": spd[1]};
+      
+      // Find image if present
+      if (c.flavor.imageUrl) {
+        var img_url = c.flavor.imageUrl;
       } else {
-        var thisSpeed = {"value": c.stats.speed};
+        var img_url = "icons/mystery-man.png";
       }
 
-      // Handle skills
-      // Dictionary to map skill names to foundry attributes
-      var skills_map = {
-        "Acrobatics": "acr",
-        "Animal Handling": "ani",
-        "Arcana": "arc",
-        "Athletics": "ath",
-        "Deception": "dec",
-        "History": "his",
-        "Insight": "ins",
-        "Intimidation": "itm",
-        "Investigation": "inv",
-        "Medicine": "med",
-        "Nature": "nat",
-        "Perception": "prc",
-        "Performance": "prf",
-        "Persuasion": "per",
-        "Religion": "rel",
-        "Sleight of Hand": "slt",
-        "Stealth": "ste",
-        "Survival": "sur"
-      };
-
-      let profBonus = c.stats.proficiencyBonus;
-      var foundrySkills = {};
-
-      for (let s of c.stats.skills){
-          foundrySkills[skills_map[s.name]] = {"value": 1, "prof": profBonus};
-      }
-
-      var foundryAbilities = {
+      // Create the temporary actor data structure
+      let tempActor = {
+        name: c.name,
+        type: "npc",
+        img: img_url,
+        token: {
+          name: c.name,
+          img:img_url
+        },
+        data: {
+          abilities: {
             str: {
               value: c.stats.abilityScores.strength
             },
@@ -137,43 +117,8 @@ activateListeners(html) {
             },
             cha: {
               value: c.stats.abilityScores.charisma
-            },
-          };
-
-      // Dictionary to map db ability names to foundry ability names
-      var ability_map = {
-        "strength": "str",
-        "dexterity": "dex",
-        "constitution": "con",
-        "intelligence": "int",
-        "wisdom": "wis",
-        "charisma": "cha"
-      };
-
-      for (let save of c.stats.savingThrows){
-        //uses the default proficency which is based on CR
-        foundryAbilities[ability_map[save.ability]].proficient = 1
-      }
-
-      // Find image if present
-      if (c.flavor.imageUrl) {
-        var img_url = c.flavor.imageUrl;
-      } else {
-        var img_url = "icons/mystery-man.png";
-      }
-
-      // Create the temporary actor data structure
-      let tempActor = {
-        name: c.name,
-        type: "npc",
-        img: img_url,
-        token: {
-          name: c.name,
-          img: img_url
-        },
-        data: {
-          abilities: foundryAbilities,
-          skills: foundrySkills,
+            }
+          },
           attributes: {
             ac: {
               value: c.stats.armorClass
@@ -182,8 +127,7 @@ activateListeners(html) {
               value: c.stats.hitPoints,
               max: c.stats.hitPoints,
               formula: c.stats.hitPointsStr.match(/\(([^)]+)\)/)[1]
-            },
-            speed: thisSpeed
+            }
           },
           details: {
             alignment: c.stats.alignment,
@@ -192,63 +136,27 @@ activateListeners(html) {
             xp: {
               value: c.stats.experiencePoints
             },
-            source: `CritterDB - ${bestiary}`,
-            biography: {
-              value: c.flavor.description
-            },
-            environment: c.flavor.environment
+            source: `CritterDB - ${bestiary}`
           },
           traits: {
             size: size_dict[c.stats.size],
             di: {
-              value: c.stats.damageImmunities.map(v => v.toLowerCase())
+              value: c.stats.damageImmunities
             },
             dr: {
-              value: c.stats.damageResistances.map(v => v.toLowerCase())
+              value: c.stats.damageResistances
             },
             dv: {
-              value: c.stats.damageVulnerabilities.map(v => v.toLowerCase())
+              value: c.stats.damageVulnerabilities
             },
             ci: {
-              value: c.stats.conditionImmunities.map(v => v.toLowerCase())
+              value: c.stats.conditionImmunities
             },
-            senses: c.stats.senses.join(),
-            languages: {
-              value: c.stats.languages.map(v => v.toLowerCase())
-            }
+            senses: c.stats.senses.join()
           },
+          items: []
         }
       };
-
-      tempActor.data.resources = {};
-
-      //check if creature has any legendary actions
-      if (c.stats.legendaryActions.length > 0){
-        tempActor.data.resources.legact = {
-          value: c.stats.legendaryActionsPerRound,
-          max: c.stats.legendaryActionsPerRound
-        };
-      }
-
-      //check for a string related to legendary resistance in the aditional abilities
-      var legRes = c.stats.additionalAbilities.find(aa => aa.name.startsWith("Legendary Resistance"));
-      if (legRes != null){
-        var value = legRes.name.match(/Legendary Resistance \(([0-9]+)\/Day\)/);
-        //just assume 3 if we cant match the number
-        var number = 3;
-        if (value != null){
-          number = parseInt(value[1]);
-        }
-
-        tempActor.data.resources.legres = {
-          value: number,
-          max: number
-        };
-      }
-
-      console.log(tempActor);
-      // Create the actor
-      let thisActor = await Actor.create(tempActor,{'temporary':true, 'displaySheet': false});
 
       // Create owned "Items" for spells, actions, and abilities
       // WIP: Loop over the critterDB stats.additionalAbilities, actions, reactions, and legendaryActions
@@ -257,9 +165,13 @@ activateListeners(html) {
       // Concatenate all of the arrays from CritterDB
       let action_array = c.stats.additionalAbilities.concat(c.stats.actions, c.stats.reactions, c.stats.legendaryActions);
       
+      var actions = [];
+
       for (let a of action_array) {
         // Detect type of action where "Attack:" indicates a "weapon", otherwise a "feat"
         var atype = a.description.includes("Attack:");
+        // console.log(a.name);
+        // console.log(atype);
 
         // Set up the Item data
         let thisItem = {
@@ -298,11 +210,7 @@ activateListeners(html) {
             let dtypes = [...a.description.matchAll(dtype_regexp)];
 
             matches.forEach((formula, index) => {
-              try {
-                thisItem.data.damage.parts.push([formula[1], dtypes[index][0].toLowerCase()]);
-              } catch (e) {
-                console.log(e);
-              }
+              thisItem.data.damage.parts.push([formula[1], dtypes[index][0].toLowerCase()]);
             });
             
         } else {
@@ -310,10 +218,17 @@ activateListeners(html) {
           thisItem.type = "feat";
         }
 
-        // Create the item and add it to the actor
-        let tempItem = await Item.create(thisItem, {'temporary': true, 'displaySheet': false});
-        thisActor.data.items.push(tempItem);
+        // let tempItem = await Item.create(thisItem, {'temporary': true, 'displaySheet': false});
+        actions.push(thisItem);
       };
+
+      // tempActor.data.items = actions;
+      console.log(actions);
+      // console.log(tempActor);
+      // Create the actor
+      let thisActor = await Actor.create(tempActor,{'temporary':false, 'displaySheet': false});
+      const created = await thisActor.createEmbeddedEntity("OwnedItem", actions);
+      console.log(thisActor);
 
       // Check if this actor already exists and handle update/replacement
       let existingActor = game.packs.find(p => p.collection === `world.critterdb-${bestiary}`).index.find(n => n.name === c.name);
@@ -321,8 +236,6 @@ activateListeners(html) {
       if (existingActor == null) {
       // Import the actor into the pack
       await pack.importEntity(thisActor);
-      await pack.getIndex(); // Need to refresh the index to update it
-
       // Wrap up
       console.log(`Done importing ${c.name} into ${pack.collection}`);
       ui.notifications.info(`Done importing ${c.name} into ${pack.collection}`);
@@ -342,6 +255,8 @@ activateListeners(html) {
         console.log(`${c.name} already exists. Skipping`);
         ui.notifications.error(`${c.name} already exists. Skipping`);
       }
+      thisActor.delete(); // Remove from world actors
+      await pack.getIndex(); // Need to refresh the index to update it
     }
   }
 }
