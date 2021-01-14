@@ -86,7 +86,7 @@ activateListeners(html) {
       if (c.flavor.imageUrl) {
         var img_url = c.flavor.imageUrl;
       } else {
-        var img_url = "icons/mystery-man.png";
+        var img_url = "icons/svg/mystery-man.png";
       }
 
       // Create the temporary actor data structure
